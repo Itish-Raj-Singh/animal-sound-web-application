@@ -1,0 +1,36 @@
+body{
+    font-family: 'Festive', cursive;
+    background-color: darkgoldenrod;
+}
+.header_div{
+    font-family: 'Supermercado', cursive;
+    color:aqua;
+}
+.header_div p{
+    font-family: 'Great Vibes', cursive;
+    color: darkred;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+.main_div button{
+    font-family: 'Nothing You Could Do', cursive;
+    font-weight:bolder ;
+    color:crimson ;
+    margin-top: 30px;
+    width: 130px;
+    letter-spacing: 3px;
+}
+.copy_right_footer{
+    position: fixed;
+    bottom: 0;
+    width:100% ;
+    color:blueviolet ;
+    font: size 18px; ;
+    line-height: 3;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Special Elite', cursive;
+    text-shadow: 5px 5px 5px greenyellow;
+    
+}
