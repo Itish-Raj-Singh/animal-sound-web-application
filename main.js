@@ -31,27 +31,27 @@ function gotResult(error, results) {
         if(results[0].label == "Barking"){
             img.src = "bark.gif";
             dog = dog+1;
-            document.getElementById("detected").innerHTML = "Detected Dog - "+ dog;
+            document.getElementById("detected_number").innerHTML = "Detected Dog - "+ dog;
         }
         else if(results[0].label == "Meowing"){
             img.src = "meow.gif";
             cat = cat+1;
-            document.getElementById("detected").innerHTML = "Detected Cat - "+ cat;
+            document.getElementById("detected_number").innerHTML = "Detected Cat - "+ cat;
         }
         else if(results[0].label == "Roar"){
             img.src = "lion.gif";
             lion = lion+1;
-            document.getElementById("detected").innerHTML = "Detected Lion - "+ lion;
+            document.getElementById("detected_number").innerHTML = "Detected Lion - "+ lion;
         }
         else if(results[0].label == "Mooing"){
             img.src = "moo.gif";
             cow = cow+1;
-            document.getElementById("detected").innerHTML = "Detected Cow - "+ cow;
+            document.getElementById("detected_number").innerHTML = "Detected Cow - "+ cow;
         }
         else{
             img.src = "listen.gif";
             background_noise = background_noise+1;
-            document.getElementById("detected").innerHTML = "Detected Background Noise - "+ background_noise;
+            document.getElementById("detected_number").innerHTML = "Detected Background Noise - "+ background_noise;
         }
     }
 }
