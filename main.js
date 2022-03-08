@@ -19,12 +19,12 @@ function gotResult(error, results) {
         console.log("Green "+random_number_g);
         console.log("Blue "+random_number_b);
 
-        document.getElementById("detected").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_b+")";
-        document.getElementById("detected").style.fontFamily = 'Courier New'+","+'Courier'+","+'monospace';
+        document.getElementById("detected_number").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_b+")";
+        document.getElementById("detected_number").style.fontFamily = 'Courier New'+","+'Courier'+","+'monospace';
 
-        document.getElementById("voice").innerHTML = "Detected Voice Is Of - "+results[0].label;
-        document.getElementById("voice").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_b+")";
-        document.getElementById("voice").style.fontFamily = 'Courier New'+","+'Courier'+","+'monospace';
+        document.getElementById("detected_voice_of").innerHTML = "Detected Voice Is Of - "+results[0].label;
+        document.getElementById("detected_voice_of").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_b+")";
+        document.getElementById("detected_voice_of").style.fontFamily = 'Courier New'+","+'Courier'+","+'monospace';
 
         img = document.getElementById("image");
 
