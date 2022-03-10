@@ -1,62 +1,61 @@
-prediction = "";
-
-Webcam.set({
-    width: 350,
-    height: 300,
-    image_format: 'png',
-    png_quality: 90
-});
-
-camera = document.getElementById("camera");
-
-Webcam.attach('#camera');
-
-function take_snapshot() {
-    Webcam.snap(function (data_uri){
-        document.getElementById("result").innerHTML = '<img id="image_captured" src="'+data_uri+'"/>';
-    });
+function startClassifictaion() {
+    navigator.mediaDevices.getUserMedia({audio:true});
+    classifier = ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/9-hh6ypJQ/model.json',modelReady);
 }
-
-console.log("ml5 version:",ml5.version);
-
-classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/g0w8JQx4C/model.json',modelLoaded);
-
-function modelLoaded() {
-    console.log("Model Loaded Successfully!");
+function modelReady() {
+    classifier.classify(gotResult);
 }
-
-function speak() {
-    var synth = window.speechSynthesis;
-    var speak_data = "The Prediction Is "+prediction;
-    var utterThis = new SpeechSynthesisUtterance(speak_data);
-    synth.speak(utterThis);
-}
-function check() {
-    img = document.getElementById("results");
-    classifier.classify(img, gotResults);
-}
-
-function gotResults(error, results){
+var cat = 0;
+var dog = 0;
+var cow = 0;
+var lion = 0;
+var Background_noise = 0;
+function gotResult(error, results) {
     if(error){
         console.error(error);
     }
     else{
         console.log(results);
-        document.getElementById("result_gesture_name").innerHTML = results[0].label;
-        prediction = results[0].label;
-        speak();
-        if(results[0].label == "Amazing"){
-            document.getElementById("result_emoji").innerHTML = "&#128076;";
-            document.getElementById("quote").innerHTML = "Oh! Thank You For Saying The Food Is Amazing";
+        random_number_r = Math.floor(Math.random() * 255) + 1;
+        random_number_g = Math.floor(Math.random() * 255) + 1;
+        random_number_b = Math.floor(Math.random() * 255) + 1;
+
+        console.log("Red "+random_number_r);
+        console.log("Green "+random_number_g);
+        console.log("Blue "+random_number_b);
+
+        document.getElementById("detected_number").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_b+")";
+        document.getElementById("detected_number").style.fontFamily = 'Courier New'+","+'Courier'+","+'monospace';
+
+        document.getElementById("detected_voice_of").innerHTML = "Detected Voice Is Of - "+results[0].label;
+        document.getElementById("detected_voice_of").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_b+")";
+        document.getElementById("detected_voice_of").style.fontFamily = 'Courier New'+","+'Courier'+","+'monospace';
+
+        img = document.getElementById("ear");
+
+        if(results[0].label == "Barking"){
+            img.src = "bark.gif";
+            dog = dog+1;
+            document.getElementById("detected_number").innerHTML = "Detected Dog - "+ dog;
         }
-        if(results[0].label == "Best"){
-            document.getElementById("result_emoji").innerHTML = "&#128077";
-            document.getElementById("quote").innerHTML = "Thank You! I Am Going To Attend The Exam Today";
+        else if(results[0].label == "Meowing"){
+            img.src = "meow.gif";
+            cat = cat+1;
+            document.getElementById("detected_number").innerHTML = "Detected Cat - "+ cat;
         }
-        if(results[0].label == "Victory"){
-            document.getElementById("result_emoji").innerHTML = "&#9996;";
-            document.getElementById("quote").innerHTML = "Oh! You Won The Drawing Competition Congratulations";
+        else if(results[0].label == "Roar"){
+            img.src = "lion.gif";
+            lion = lion+1;
+            document.getElementById("detected_number").innerHTML = "Detected Lion - "+ lion;
         }
-     
+        else if(results[0].label == "Mooing"){
+            img.src = "moo.gif";
+            cow = cow+1;
+            document.getElementById("detected_number").innerHTML = "Detected Cow - "+ cow;
+        }
+        else{
+            img.src = "listen.gif";
+            document.getElementById("detected_number").innerHTML = "Detected Background Noise";
         }
     }
+}
