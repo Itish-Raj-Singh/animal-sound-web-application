@@ -1,36 +1,39 @@
-body{
-    font-family: 'Festive', cursive;
-    background-color: darkgoldenrod;
+body
+{
+  color: white;
+  background: rgb(128, 54, 99);
 }
-.header_div{
-    font-family: 'Supermercado', cursive;
-    color:aqua;
+span
+{
+  font-size: 30px;
 }
-.header_div p{
-    font-family: 'Great Vibes', cursive;
-    color: darkred;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 12px;
+#camera , #result
+{
+  border: 2px dashed black;
+  width: 350px;
+  height: 300px; 
 }
-.main_div button{
-    font-family: 'Nothing You Could Do', cursive;
-    font-weight:bolder ;
-    color:crimson ;
-    margin-top: 30px;
-    width: 130px;
-    letter-spacing: 3px;
+#result_emotion_name ,#result_emotion_name2  
+{
+  color: black;
 }
-.copy_right_footer{
-    position: fixed;
-    bottom: 0;
-    width:100% ;
-    color:blueviolet ;
-    font: size 18px; ;
-    line-height: 3;
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Special Elite', cursive;
-    text-shadow: 5px 5px 5px greenyellow;
-    
+.emotion_name
+{
+  font-size: 40px;
+}
+.emoji
+{
+  font-size:48px;
+}
+.heading{
+  font-size: 18px;
+  border-radius: 10px;
+  letter-spacing: 10px;
+}
+label{
+  font-size: 14px;
+  color: #62b33a;
+  padding: 6px;
+  border-radius: 10px;
+  background-color: white;
 }
